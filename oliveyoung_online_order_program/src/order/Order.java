@@ -41,8 +41,18 @@ public class Order {
         int resultPrice = totalPrice + deliveryCost;
 
         // 2. 포인트 사용 여부 확인
-        System.out.print("\n🔶 보유 포인트를 입력하세요: ");
-        points = scanner.nextInt();
+        while (true) {
+            System.out.print("\n🔶 보유 포인트를 입력하세요: ");
+            points = scanner.nextInt();
+
+            if (points < 0) {
+                System.out.println("\n⚠️ 포인트는 마이너스가 될 수 없어요! ⚠️");
+                continue;
+            }
+
+            break;
+        }
+
         System.out.println("\n💰 보유 포인트: " + points + "원");
         System.out.println("\n🔶 포인트를 사용하시겠습니까? (포인트는 1000원부터 10원 단위로 사용 가능) [Y/N]");
         System.out.print("👉 ");
